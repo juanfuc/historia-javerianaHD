@@ -11,7 +11,10 @@ const config = {
 			precompress: false,
 			strict: true,
 			hydrate: true
-		})
+		}),
+		prerender: {
+		  handleMissingId: () => true // Suppress missing ID error
+		}
 	}
 };
 
