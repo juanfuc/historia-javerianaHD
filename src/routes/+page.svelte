@@ -1,79 +1,100 @@
 <script>
-    import Proyectos from '../components/Proyectos.svelte'
+    import Proyectos from '../components/ProyectosHd.svelte';
+    import { fly } from 'svelte/transition';
+    import Acerca from '../components/Acerca.svelte';
 
+    let mostrarProyectos = true;
 
+    function mostrarAcerca() {
+        mostrarProyectos = false;
+    }
+
+    function volverAProyectos() {
+        mostrarProyectos = true;
+    }
 </script>
 
 <div class="contenedor-general">
-
     <header>
-        <div class="titulo"><h1>Proyectos HD</h1><h1>historiaJaveriana</h1></div>
-        <div class="nav"><a href="#acerca"><h3>Acerca</h3></a></div>
+        <div class="titulo"><h1>ProyectosHD-historiaJaveriana</h1></div>
+        <div class="nav">
+            <a href="#acerca" on:click={mostrarAcerca}><h3>Acerca</h3></a>
+            <a href="#proyectos" on:click={volverAProyectos}><h3>Proyectos</h3></a>
+        </div>
     </header>
 
     <div class="contenido">
-
-        <div class="proyecto">
-            <Proyectos/>
-        </div>
-
+        {#if mostrarProyectos}
+            <div id="proyectos" class="proyecto" transition:fly={{x: mostrarProyectos ? 0 : -30}}>
+                <Proyectos {volverAProyectos} />
+            </div>
+        {/if}
+        {#if !mostrarProyectos}
+            <div id="acerca" transition:fly={{x: mostrarProyectos ? 30 : 0}}>
+                <Acerca {volverAProyectos}/> 
+            </div>
+        {/if}
     </div>
-
 </div>
+
 
 <style>
      .contenedor-general {
             display: flex;
             flex-direction: column;
-         
- 
         }
 
         header {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: baseline;
-            background-color: #fffdfc;
+            background-color: #f7ebe7;
             width: 100%;
             padding: 12px;
+            border-bottom: 1px solid #ff3c00;
+            
         }
 
         .titulo {
-            font-size: 50px;
+            font-size: 12px;
             font-family: 'Public Sans', sans-serif;
-            color: #000;
+            color: #ff3c00;
+            font-weight: 100;
+            margin-left: 6%;
+            user-select: none
         }
 
         .nav {
             display: flex;
-            flex-direction: column;
-            justify-content:baseline;
-            font-size: .7em;
+            flex-direction: row;
+            justify-content:space-between;
+            font-size: .4em;
             font-family: 'Public Sans', sans-serif;
             text-align: center;
             max-width: 100%;
-            font-weight: 800;
+            font-weight: 100;
+            margin-right: 9%;
         }
 
         .nav a {
-            background-color: #f96400;
+            background-color: #f7ebe7;
             font-family: 'Public Sans', sans-serif;
-            width: 7vw;
-            height: 3vw;
             text-decoration: none;
-            color: #fffdfc;
-            font-size: 1.5em;
-            border-radius: 100px;
+            color: #ff3c00;
+            font-size: 2.5em;
+            padding: 10px;
             cursor: pointer;
-            border-left: 1px solid rgba(0, 0, 0, 0);
             transform-style: preserve-3d;
+            margin-top: 10%;
         }
 
         .nav a:hover {
-            transform: translate3d(0px, -10.405px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(8deg) rotateZ(9.11765deg) skew(0deg);
-            width: 7.5vw;
-            height: 3.5vw;
-            transition: all 1s ease;
+     
+            transition: all 0.2s ease;
+            background-color: #f7ebe7;
+            color: #ff3c00;
+            
+            text-decoration: underline;
         }
 
         
