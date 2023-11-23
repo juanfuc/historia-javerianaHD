@@ -47,8 +47,8 @@
 button {
             background-color: #f7ebe7;
             font-family: 'Public Sans', sans-serif;
-            width: 4vw;
-            height: 3vw;
+            width:auto;
+            height: auto;
             text-decoration: none;
             color: #ff3c00;
             font-size: 2.5em;
@@ -56,7 +56,7 @@ button {
             border: 1px solid #ff3c00;
             cursor: pointer;
             transform-style: preserve-3d;
-            margin-top: 1%;
+            margin-top: 3%;
         }
 
 button a {
@@ -70,4 +70,17 @@ button:hover {
             color: #ff3c00;
             box-shadow: 0 0 1px #ff3c00;
         }
+
+        @media screen and (max-width: 768px) {
+            .texto {
+    margin-left: 6%;
+    margin-right: 4%;
+}
+
+button {
+        width: auto; /* Ajusta el ancho del botón al 100% en dispositivos móviles */
+        height: auto; /* Permite que la altura del botón sea automática en dispositivos móviles */
+        font-size: 1.5em; /* Ajusta el tamaño de la fuente para dispositivos móviles */
+    }
+    }
 </style>

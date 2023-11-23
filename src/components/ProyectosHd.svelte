@@ -131,8 +131,8 @@ function resetSelection() {
     button {
             background-color: #f7ebe7;
             font-family: 'Public Sans', sans-serif;
-            width: 4vw;
-            height: 3vw;
+            width: auto;
+            height: auto;
             text-decoration: none;
             color: #ff3c00;
             font-size: 2.5em;
@@ -149,4 +149,27 @@ function resetSelection() {
             color: #ff3c00;
             box-shadow: 0 0 4px #ff3c00;;
         }
+
+        @media screen and (max-width: 768px) {
+      .contenedor-proyectos {
+        flex-direction: column;
+        
+      }
+
+      .tarjeta-proyecto {
+        width: 100%;
+      margin-bottom: 2%;
+      -moz-box-flex: 0; /* Prefijo para Firefox */
+      -webkit-box-flex: 0; /* Prefijo para Webkit (Chrome, Safari) */
+      -webkit-flex: 0 0 auto; /* Prefijo para Webkit (Chrome, Safari) */
+      flex: 0 0 auto;
+      }
+
+      button {
+        width: auto; /* Ajusta el ancho del botón al 100% en dispositivos móviles */
+        height: auto; /* Permite que la altura del botón sea automática en dispositivos móviles */
+        font-size: 1.5em; /* Ajusta el tamaño de la fuente para dispositivos móviles */
+    }
+    }
+
   </style>

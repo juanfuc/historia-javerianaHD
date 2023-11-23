@@ -97,5 +97,26 @@
             text-decoration: underline;
         }
 
+        @media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+ 
+
+    .titulo h1 {
+
+        margin-bottom: 10px; /* Agrega un margen inferior para separar el título del menú */
+    }
+
+    .nav a {
+        font-size: 2.5em; /* Ajusta el tamaño del texto del menú para móviles */
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+
         
 </style>
