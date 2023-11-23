@@ -115,6 +115,7 @@
       text-align: justify;
       color: white; /* Color del texto en el overlay */
       padding: 20px;
+      overflow: auto;
     }
   
     button {
@@ -138,5 +139,9 @@
             color: #f7ebe7;
             box-shadow: 0 0 4px #ff3c00;;
         }
+
+        @media screen and (max-width: 768px) {
+
+  }
   </style>
   
