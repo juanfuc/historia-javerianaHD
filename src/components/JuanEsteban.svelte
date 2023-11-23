@@ -65,6 +65,7 @@
       text-align: justify;
       color: white; /* Color del texto en el overlay */
       padding: 20px;
+      overflow: auto;
     }
   
     button {
