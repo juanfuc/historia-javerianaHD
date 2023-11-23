@@ -1,5 +1,11 @@
 <script>
     import { onMount, afterUpdate } from 'svelte';
+    let showDescription = false;
+    export let proyectos;
+  
+    function toggleDescription() {
+      showDescription = !showDescription;
+    }
   
     export let vizId = 'viz1700168333957';
   
@@ -25,7 +31,27 @@
       // Puedes realizar acciones adicionales después de cada actualización si es necesario
     });
   </script>
-  <h1>Geopolítica de los proyectos HD</h1>
+
+  <div class="project-info">
+    <h1>{proyectos[3].nombre}</h1>
+    <p>Por: {proyectos[3].autor}</p>
+  
+    <button on:click={toggleDescription}>
+      {#if showDescription}
+        Ocultar Descripción
+      {:else}
+        Mostrar Descripción
+      {/if}
+    </button>
+  
+    {#if showDescription}
+    <div class="overlay">
+      <div class="texto">
+        {proyectos[3].descripcion}
+      </div>
+      <button on:click={toggleDescription} class="hide-button">Ocultar Descripción</button>
+    </div>
+  {/if}
   <div class="tableauPlaceholder" id="{vizId}" style="">
     <noscript>
       <!-- svelte-ignore a11y-invalid-attribute -->
@@ -48,6 +74,7 @@
       <param name="language" value="es-ES" />
     </object>
   </div>
+</div>
 
   <style>
     /* Estilos para personalizar la apariencia del componente */
@@ -62,5 +89,54 @@
       width: 100%;
       height: 100%;
     }
+    
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 4%;
+      margin-right: 6%;
+      position: relative;
+    }
+  
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9); /* Fondo opaco */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 1000000;
+    }
+  
+    .texto {
+      text-align: justify;
+      color: white; /* Color del texto en el overlay */
+      padding: 20px;
+    }
+  
+    button {
+            background-color:  #ff3c00;
+            font-family: 'Public Sans', sans-serif;
+            text-decoration: none;
+            color: #f7ebe7;
+            font-size: 1em;
+            border-radius: 1px;
+            border: 1px solid #ff3c00;
+            cursor: pointer;
+            padding: 0.5%;
+            max-width: 170px; /* Limita el ancho del botón */
+            margin-right: 100px;
+        }
+
+        button:hover {
+     
+            transition: all 1s ease;
+            background-color: #ff3c00;
+            color: #f7ebe7;
+            box-shadow: 0 0 4px #ff3c00;;
+        }
   </style>
   

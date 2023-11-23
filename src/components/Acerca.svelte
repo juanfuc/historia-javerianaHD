@@ -38,8 +38,8 @@
     color: #ff3c00;
 }
 .texto {
-    margin-left: 33%;
-    margin-right: 33%;
+    margin-left: 23%;
+    margin-right: 23%;
 }
 .parrafos {
     text-align: justify;
